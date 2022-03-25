@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=800, initial-scale=1.0">
     <title>btw intersection observer</title>
     <style>
+        
+        @import url('https://fonts.googleapis.com/css2?family=Antic+Didone&display=swap');
+
         html {
             scroll-behavior: smooth;
         }
@@ -13,8 +16,32 @@
             padding: 0px;
             margin: 0px;
         }
+        nav {
+            font-family: 'Antic Didone', serif;
+        }
         section {
             scroll-behavior: smooth;
+        }
+        section#home {
+            min-height: 100vh;
+        }
+        a.navlink {
+            font-size: 3vmin;
+            text-decoration: none;
+            text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+            text-transform: uppercase;
+        }
+        a.foundation {
+            color:#61CE70;
+        }
+        a.education {
+            color: #2DAFFC;
+        }
+        a.home {
+            color: black;
+        }
+        a.projects {
+            color:blueviolet
         }
     </style>
 </head>
@@ -22,22 +49,25 @@
     <nav style="
         display: flex;
         justify-content: space-between;
-        width: 75vw;
+        width: 100vw;
         margin-left: auto;
         margin-right: auto;
         position: fixed; z-index: 2;
         left: 50%;
         transform: translate(-50%, 0);
         flex-wrap: wrap;
-    ">
-        <a style="padding: 5px;" href="#home">home</a>
-        <a style="padding: 5px;" href="#foundation">foundation</a>
-        <a style="padding: 5px;" href="#education">education</a>
-        <a style="padding: 5px;" href="#contact">contact</a>
+">
+        <a style="padding: 5px;" class="navlink none" href="#" >&nbsp;</a>
+
+        <a style="padding: 5px;" class="navlink home" href="#home" >home</a>
+        <a style="padding: 5px;" class="navlink foundation" href="#foundation">foundation</a>
+        <a style="padding: 5px;" class="navlink education" href="#education">education</a>
+        <a style="padding: 5px;" class="navlink projects" href="#projects">projects</a>
+
+        <a style="padding: 5px;" class="navlink none" href="#" >&nbsp;</a>
+
     </nav>
     <section style="
-        height: 100vh;
-        width: 75vw;
         margin-left: auto;
         margin-right: auto;
         display: flex;
@@ -51,30 +81,68 @@
             filter: contrast(1.75);
         "></canvas>
     </section>
-    <main>
         <section id="foundation" style="
-        height: 100vh;
+
         background-color: #61CE70;
+        
         ">
+        <header style="
+        height: calc(75vw / 1.77777777778);
+        background-image: url(https://breakthemould.org.uk/wp-content/uploads/2020/09/1279e4_33d843f74a564e3caf13d77fec7b19d5_mv2-scaled.jpg);
+        background-repeat: no-repeat;
+        padding-top: 70px;
+        background-size: cover;
+        text-align: center;
+        color: white;
+        ">
+
+        </header>
+    <main>
+        <div style="display: flex;">
+        <video src="https://breakthemould.org.uk/wp-content/uploads/2021/03/BTM-Birthday-Compressed-420p-15MB.mp4"
+        controls="" controlslist="nodownload" poster="./other/video thumbnail.png"
+        aria-label="Break The Mould Celebrates It's 2nd Birthday!"
+        width="60%"
+        style="display:inline-block;"
+        ></video>
+
+        <article style="width: 40%; padding: 2em; font-size: 1.5em;">
+            <h1>Who We Are</h1>
+            <p>
+            Operating as non-profit organisation, Break The Mould was founded in 2019 by Kris Leigh, with the aim of educating children through participation in sport.
+
+            Our team of volunteers help provide support for young people across the Wirral, with our ultimate goal being a facility that caters for all our projects under one roof.
+            </p>
+        </article>
+        </div>
+        <img width="40%" src="https://breakthemould.org.uk/wp-content/uploads/2021/06/E28TbO-XMAEsWrn.jpg" alt="National Diversity Award, congratulating Break the Mould for 2021 nomination."/>
+
+    </main>
+<footer>
+
+</footer>
+
 
         </section>
         <section id="education" style="
-        height: 100vh;
         background-color:#2DAFFC">
 
         </section>
-        <section id="contact" style="
-        height: 100vh;
+        <section id="projects" style="
         display: flex;
         justify-content: center;
         align-items: center;
+        display: flex;
+        flex-direction: column;;
         ">
 
+<img src="socialsupermarketbanner.jpg" width="100%"/>
 
+<address>St Peter’s RC Church, St Peter’s Way, Birkenhead, Prenton CH43 9QR</address>
 
         </section>
         
-    </main>
+
     <script>
         let pyo = window.pageYOffset;
         var ctx = document.getElementById("canvas").getContext("2d");
@@ -99,7 +167,7 @@
             ctx.globalAlpha = 1 - opacity;
 
             ctx.drawImage(sprite, x, y, sWidth, sHeight, dx, dy - 70, dWidth, dHeight);
-            ctx.globalAlpha = 1;
+            ctx.globalAlpha = 1- opacity /2;
             ctx.drawImage(themould, 0, 0, 4294, 559,    135, 500 - 70, 915,    100);
 
             requestAnimationFrame(draw);
@@ -107,11 +175,11 @@
         requestAnimationFrame(draw);
         setInterval(()=>{
             //index++;
-            index = Math.floor(window.pageYOffset/10);
+            index = Math.floor(window.pageYOffset/15);
             if (index>34) index = 34
             opacity = index/34;
             index = 34 - index;
-        }, 30)
+        }, 8)
     </script>
 </body>
 </html>
