@@ -7,8 +7,7 @@
     <title>btw intersection observer</title>
     <style>
         
-        @import url('https://fonts.googleapis.com/css2?family=Antic+Didone&display=swap');
-
+        @import url('https://fonts.googleapis.com/css2?family=Antic+Didone&family=Cinzel:wght@500&family=Work+Sans:wght@100&display=swap');
         html {
             scroll-behavior: smooth;
         }
@@ -18,11 +17,33 @@
         }
         nav {
             font-family: 'Antic Didone', serif;
+            margin-top: -80px;
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            width: 80vw;
+            margin-left: auto;
+            margin-right: auto;
+            /* position: fixed; 
+            left: 50%;
+            transform: translate(-50%, 0);*/
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            z-index: 2;
+            /*background-color: white;*/
+            flex-wrap: wrap;
         }
         section {
             scroll-behavior: smooth;
         }
         section#home {
+            min-height: 100vh;
+        }
+        section#projects {
+            min-height: 100vh;
+        }
+        section#education {
             min-height: 100vh;
         }
         a.navlink {
@@ -43,80 +64,90 @@
         a.projects {
             color:blueviolet
         }
+        h1 {
+            font-family: 'Work Sans', sans-serif;
+        }
+        p {
+            font-family: 'Work Sans', sans-serif;
+        }
     </style>
 </head>
 <body>
-    <nav style="
-        display: flex;
-        justify-content: space-between;
-        width: 100vw;
-        margin-left: auto;
-        margin-right: auto;
-        position: fixed; z-index: 2;
-        left: 50%;
-        transform: translate(-50%, 0);
-        flex-wrap: wrap;
-">
-        <a style="padding: 5px;" class="navlink none" href="#" >&nbsp;</a>
-
-        <a style="padding: 5px;" class="navlink home" href="#home" >home</a>
-        <a style="padding: 5px;" class="navlink foundation" href="#foundation">foundation</a>
-        <a style="padding: 5px;" class="navlink education" href="#education">education</a>
-        <a style="padding: 5px;" class="navlink projects" href="#projects">projects</a>
-
-        <a style="padding: 5px;" class="navlink none" href="#" >&nbsp;</a>
-
-    </nav>
+   
     <section style="
-        margin-left: auto;
-        margin-right: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction:column;
+    align-items: center;
     " id="home">
+
         <canvas width="1200" height="675" class="canvas" id="canvas" style="
             height: calc(75vw / 1.77777777778);
             width: 75vw;
             filter: saturate(1.5);
             filter: contrast(1.75);
-        "></canvas>
+        "
+            aria-label="Break The Mould, animated introduction, the word break explodes in sync with the page being scrolled."
+        ></canvas>
     </section>
-        <section id="foundation" style="
+    <nav style="
 
-        background-color: #61CE70;
-        
-        ">
-        <header style="
-        height: calc(75vw / 1.77777777778);
-        background-image: url(https://breakthemould.org.uk/wp-content/uploads/2020/09/1279e4_33d843f74a564e3caf13d77fec7b19d5_mv2-scaled.jpg);
-        background-repeat: no-repeat;
-        padding-top: 70px;
-        background-size: cover;
-        text-align: center;
-        color: white;
-        ">
+    ">
+        <a style="padding: 5px;" class="navlink none" href="#" >&nbsp;</a>
+    
+        <a style="padding: 5px;" class="navlink home" href="#home" >home</a>
+        <a style="padding: 5px;" class="navlink foundation" href="#foundation">foundation</a>
+        <a style="padding: 5px;" class="navlink education" href="#education">education</a>
+        <a style="padding: 5px;" class="navlink projects" href="#projects">projects</a>
+    
+        <a style="padding: 5px;" class="navlink none" href="#" >&nbsp;</a>
+    
+    </nav>
+  
+   
 
-        </header>
+
+
+        <section id="foundation" style="">
+            <header style="
+            height: calc(75vw / 1.77777777778);
+            background-image: url(https://breakthemould.org.uk/wp-content/uploads/2020/09/1279e4_33d843f74a564e3caf13d77fec7b19d5_mv2-scaled.jpg);
+            background-repeat: no-repeat;
+            padding-top: 70px;
+            background-size: cover;
+            text-align: center;
+            color: white;
+            justify-content: center;
+            font-size: 3vh;
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+            ">
+            <section>
+            <h2>Break The Mould Foundation</h2>
+            </header>
+            <article style="font-size:2vh; text-align: center;  background-color:rgba(0,0,0,0); 
+            padding: 3vw; font-weight: bold;">
+                <h1>Who We Are</h1>
+                <p>
+                Operating as non-profit organisation, Break The Mould was founded in 2019 by Kris Leigh, with the aim of educating children through participation in sport.
+                Our team of volunteers help provide support for young people across the Wirral, with our ultimate goal being a facility that caters for all our projects under one roof.
+                </p>
+            </article>
+        </section>
     <main>
         <div style="display: flex;">
-        <video src="https://breakthemould.org.uk/wp-content/uploads/2021/03/BTM-Birthday-Compressed-420p-15MB.mp4"
-        controls="" controlslist="nodownload" poster="./other/video thumbnail.png"
-        aria-label="Break The Mould Celebrates It's 2nd Birthday!"
-        width="60%"
-        style="display:inline-block;"
-        ></video>
-
-        <article style="width: 40%; padding: 2em; font-size: 1.5em;">
-            <h1>Who We Are</h1>
-            <p>
-            Operating as non-profit organisation, Break The Mould was founded in 2019 by Kris Leigh, with the aim of educating children through participation in sport.
-
-            Our team of volunteers help provide support for young people across the Wirral, with our ultimate goal being a facility that caters for all our projects under one roof.
-            </p>
-        </article>
+            <video
+                src="https://breakthemould.org.uk/wp-content/uploads/2021/03/BTM-Birthday-Compressed-420p-15MB.mp4"
+                controls=""
+                controlslist="nodownload"
+                poster="./other/video thumbnail.png"
+                aria-label="Break The Mould Celebrates It's 2nd Birthday!"
+                width="60%"
+                style="display:inline-block;"
+            ></video>
         </div>
         <img width="40%" src="https://breakthemould.org.uk/wp-content/uploads/2021/06/E28TbO-XMAEsWrn.jpg" alt="National Diversity Award, congratulating Break the Mould for 2021 nomination."/>
-
     </main>
 <footer>
 
@@ -156,6 +187,12 @@
         let opacity = 1;
 
         function draw() {
+            //
+            index = Math.floor(window.pageYOffset/15);
+            if (index>34) index = 34
+            opacity = index/34;
+            index = 34 - index;
+
             ctx.clearRect(0, 0, 1200, 675);
 
             let sx = 0, sy = 0, sWidth = 1200, sHeight = 675, dWidth = 1200, dHeight = 675;
@@ -165,21 +202,12 @@
             y = index * sHeight;
 
             ctx.globalAlpha = 1 - opacity;
-
             ctx.drawImage(sprite, x, y, sWidth, sHeight, dx, dy - 70, dWidth, dHeight);
             ctx.globalAlpha = 1- opacity /2;
             ctx.drawImage(themould, 0, 0, 4294, 559,    135, 500 - 70, 915,    100);
-
             requestAnimationFrame(draw);
         }
         requestAnimationFrame(draw);
-        setInterval(()=>{
-            //index++;
-            index = Math.floor(window.pageYOffset/15);
-            if (index>34) index = 34
-            opacity = index/34;
-            index = 34 - index;
-        }, 8)
     </script>
 </body>
 </html>
