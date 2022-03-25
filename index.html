@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=800, initial-scale=1.0">
+    <title>btw intersection observer</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            padding: 0px;
+            margin: 0px;
+        }
+        section {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <nav style="
+        display: flex;
+        justify-content: space-between;
+        width: 75vw;
+        margin-left: auto;
+        margin-right: auto;
+        position: fixed; z-index: 2;
+        left: 50%;
+        transform: translate(-50%, 0);
+        flex-wrap: wrap;
+    ">
+        <a style="padding: 5px;" href="#home">home</a>
+        <a style="padding: 5px;" href="#foundation">foundation</a>
+        <a style="padding: 5px;" href="#education">education</a>
+        <a style="padding: 5px;" href="#contact">contact</a>
+    </nav>
+    <section style="
+        height: 100vh;
+        width: 75vw;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    " id="home">
+        <canvas width="1200" height="675" class="canvas" id="canvas" style="
+            height: calc(75vw / 1.77777777778);
+            width: 75vw;
+            filter: saturate(1.5);
+            filter: contrast(1.75);
+        "></canvas>
+    </section>
+    <main>
+        <section id="foundation" style="
+        height: 100vh;
+        background-color: #61CE70;
+        ">
+
+        </section>
+        <section id="education" style="
+        height: 100vh;
+        background-color:#2DAFFC">
+
+        </section>
+        <section id="contact" style="
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        ">
+
+
+
+        </section>
+        
+    </main>
+    <script>
+        let pyo = window.pageYOffset;
+        var ctx = document.getElementById("canvas").getContext("2d");
+        var sprite = new Image;
+        sprite.src = "sprite.png";
+
+        var themould = new Image;
+        themould.src = "themould.png";
+
+        let index = 0;
+        let opacity = 1;
+
+        function draw() {
+            ctx.clearRect(0, 0, 1200, 675);
+
+            let sx = 0, sy = 0, sWidth = 1200, sHeight = 675, dWidth = 1200, dHeight = 675;
+            let dx = 0, dy = 0;
+
+            x = 0;
+            y = index * sHeight;
+
+            ctx.globalAlpha = 1 - opacity;
+
+            ctx.drawImage(sprite, x, y, sWidth, sHeight, dx, dy - 70, dWidth, dHeight);
+            ctx.globalAlpha = 1;
+            ctx.drawImage(themould, 0, 0, 4294, 559,    135, 500 - 70, 915,    100);
+
+            requestAnimationFrame(draw);
+        }
+        requestAnimationFrame(draw);
+        setInterval(()=>{
+            //index++;
+            index = Math.floor(window.pageYOffset/10);
+            if (index>34) index = 34
+            opacity = index/34;
+            index = 34 - index;
+        }, 30)
+    </script>
+</body>
+</html>
