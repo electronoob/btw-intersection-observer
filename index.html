@@ -6,8 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>btw intersection observer</title>
     <style>
-        
+        :root {
+            --nav-font-size: 3vmin;
+        }
+        body::after{
+            position:absolute; width:0; height:0; overflow:hidden; z-index:-1; // hide images
+            content:url(./canvas.png) url(./sprite.png  ) url(./themould.png);  // load images
+        }
+        div.canvas-background {
+            background-image: url(./canvas.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
         @import url('https://fonts.googleapis.com/css2?family=Antic+Didone&family=Cinzel:wght@500&family=Work+Sans:wght@100&display=swap');
+
         html {
             scroll-behavior: smooth;
         }
@@ -17,8 +29,8 @@
         }
         nav {
             font-family: 'Antic Didone', serif;
-            margin-top: -80px;
-            height: 80px;
+            margin-top: calc(var(--nav-font-size) * -2);
+            height: var(--nav-font-size);
             display: flex;
             justify-content: space-between;
             width: 80vw;
@@ -47,7 +59,7 @@
             min-height: 100vh;
         }
         a.navlink {
-            font-size: 3vmin;
+            font-size: var(--nav-font-size);
             text-decoration: none;
             text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
             text-transform: uppercase;
@@ -70,6 +82,7 @@
         p {
             font-family: 'Work Sans', sans-serif;
         }
+
     </style>
 </head>
 <body>
@@ -82,15 +95,17 @@
     flex-direction:column;
     align-items: center;
     " id="home">
-
-        <canvas width="1200" height="675" class="canvas" id="canvas" style="
-            height: calc(75vw / 1.77777777778);
-            width: 75vw;
-            filter: saturate(1.5);
-            filter: contrast(1.75);
-        "
-            aria-label="Break The Mould, animated introduction, the word break explodes in sync with the page being scrolled."
-        ></canvas>
+        <div class="canvas-background">
+            <canvas width="1200" height="675" class="canvas" id="canvas" style="
+                height: calc(75vw / 1.77777777778);
+                width: 75vw;
+                filter: saturate(1.5);
+                filter: contrast(1.75);
+                
+            "
+                aria-label="Break The Mould, animated introduction, the word break explodes in sync with the page being scrolled."
+            ></canvas>
+        </div>
     </section>
     <nav style="
 
@@ -176,10 +191,10 @@
         let pyo = window.pageYOffset;
         var ctx = document.getElementById("canvas").getContext("2d");
         var sprite = new Image;
-        sprite.src = "sprite.png";
+        sprite.src = "./sprite.png";
 
         var themould = new Image;
-        themould.src = "themould.png";
+        themould.src = "./themould.png";
 
         let index = 0;
         let opacity = 1;
