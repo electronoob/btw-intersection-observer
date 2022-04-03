@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>btw intersection observer</title>
     <style>
-        :root {
-            --nav-font-size: 3vmin;
-        }
+
         body::after{
             position:absolute; width:0; height:0; overflow:hidden; z-index:-1;
             content:url(./sprite2.webp  ) url(./themould.png) url(./playground/clearedfloor-background.png);
@@ -29,22 +27,18 @@
         }
         nav {
             font-family: 'Antic Didone', serif;
-            margin-top: calc(var(--nav-font-size) * -2);
-            height: var(--nav-font-size);
-            display: flex;
-            justify-content: space-between;
-            width: 80vw;
-            margin-left: auto;
-            margin-right: auto;
-            /* position: fixed; 
-            left: 50%;
-            transform: translate(-50%, 0);*/
-            position: -webkit-sticky;
+            width: 80%;
             position: sticky;
             top: 0;
+            left: 0;
+            right: 0;
             z-index: 2;
             /*background-color: white;*/
             flex-wrap: wrap;
+            display: flex;
+            justify-content: space-between;
+            margin-left: auto;
+            margin-right: auto;
         }
         section {
             scroll-behavior: smooth;
@@ -59,7 +53,7 @@
             min-height: 100vh;
         }
         a.navlink {
-            font-size: var(--nav-font-size);
+            font-size: calc(8vh - 2vw);
             text-decoration: none;
             text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
             text-transform: uppercase;
@@ -86,13 +80,11 @@
     </style>
 </head>
 <body>
-    <nav style="">
-        <a style="padding: 5px;" class="navlink none" href="#" >&nbsp;</a>
+    <nav id="nav">
         <a style="padding: 5px;" class="navlink home" href="#home" >home</a>
         <a style="padding: 5px;" class="navlink foundation" href="#foundation">foundation</a>
         <a style="padding: 5px;" class="navlink education" href="#education">education</a>
         <a style="padding: 5px;" class="navlink projects" href="#projects">projects</a>
-        <a style="padding: 5px;" class="navlink none" href="#" >&nbsp;</a>
     </nav>
     <section style="
     margin-left: auto;
@@ -101,6 +93,7 @@
     justify-content: center;
     flex-direction:column;
     align-items: center;
+    
     " id="home">
         <video style="
         
@@ -186,7 +179,10 @@
             let time = Math.round(window.pageYOffset/20);
             if (time > 33 ) time = 33;
             tehvideo.currentTime = time;
-            console.log((time))
+            
+            // i want to use this to take care of navigation position
+            let nav = document.getElementById("nav");
+            tehvideo.style.marginTop = -2 * nav.offsetHeight + "px";
             requestAnimationFrame(draw);
         }
         draw();
