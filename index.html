@@ -42,6 +42,7 @@
             margin-left: auto;
             margin-right: auto;
         }
+        
         section {
             scroll-behavior: smooth;
         }
@@ -55,10 +56,29 @@
             min-height: 100vh;
         }
         a.navlink {
-            font-size: calc(8vh - 2vw);
+            font-size: 1rem;
             text-decoration: none;
             text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
             text-transform: uppercase;
+            margin-left: 1vw;
+            margin-right: 1vw;
+        }
+
+        @media screen and (min-width: 600px)   {
+            a.navlink {
+                font-size: 3rem;
+            }
+        }
+
+        @media screen and (min-width: 320px) and (max-width: 600px) {
+            a.navlink {
+                font-size: 2.5rem;
+            }
+        }
+        @media screen and (min-width: 600px) {
+            a.navlink {
+                font-size: 2rem;
+            }
         }
         a.foundation {
             color:#61CE70;
@@ -183,8 +203,9 @@
             tehvideo.currentTime = time;
             
             // i want to use this to take care of navigation position
+            let home = document.getElementById('home');
             let nav = document.getElementById("nav");
-            tehvideo.style.marginTop = -2 * nav.offsetHeight + "px";
+            home.style.marginTop = -1.0 * nav.offsetHeight + "px";
             requestAnimationFrame(draw);
         }
         draw();
