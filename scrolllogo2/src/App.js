@@ -1,24 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import { Animator, ScrollContainer, ScrollPage, batch, Fade, FadeIn, Move, MoveIn, MoveOut, Sticky, StickyIn, ZoomIn } from "react-scroll-motion";
+
+const ZoomInScrollOut = batch(StickyIn(), FadeIn(), ZoomIn());
+const FadeUp = batch(Fade(), Move(), Sticky());
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ScrollContainer>
+      <ScrollPage page={0}>
+        <div style={{
+          marginLeft: "auto",
+          marginRight: "auto",
+          transform: "scale(0.5)",
+          top: "-46vh",
+          position: "relative",
+        }} > 
+ 
+            <Animator animation={batch(Fade(),MoveOut(-1000, -1000))}>
+              <img src="./logo/top-left-only.png" style={{            height: "46vh",
+          width: "98.29vw",position: "relative",}}/>
+            </Animator>
+            <Animator animation={batch(Fade(), MoveOut(1000, -1000))}>
+              <img src="./logo/top-right-only.png" style={{             height: "46vh",
+          width: "98.29vw", position: "relative",   top: "-46vh", }}/>
+            </Animator>
+            <Animator animation={batch(Fade(), MoveOut(-1000, 0))}>
+              <img src="./logo/middle-left-only.png" style={{             height: "46vh",
+          width: "98.29vw",position: "relative",top: "-92vh", }}/>
+            </Animator>
+            <Animator animation={batch(Fade(), MoveOut(1000, -500))}>
+              <img src="./logo/middle-right-only.png" style={{             height: "46vh",
+          width: "98.29vw", position: "relative",top: "-138vh", }}/>
+            </Animator>
+            <Animator animation={batch(Fade(), MoveOut(-1000, -1000))}>
+              <img src="./logo/bottom-left-only.png" style={{             height: "46vh",
+          width: "98.29vw", position: "relative",top: "-184vh", }}/>
+            </Animator>
+            <Animator animation={batch(Fade(), MoveOut(1000, -1000))}>
+              <img src="./logo/bottom-right-only.png" style={{           height: "46vh",
+          width: "98.29vw", position: "relative",top: "-230vh", }}/>
+            </Animator>
+        </div>
+      </ScrollPage>
+      <ScrollPage page={1}>
+        <div style={{height: "100vh",}}>ewwwwwwr</div>
+      </ScrollPage>
+    </ScrollContainer>
   );
 }
 
