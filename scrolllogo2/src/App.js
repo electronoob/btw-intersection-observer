@@ -16,27 +16,27 @@ function App() {
         }} > 
  
             <Animator animation={batch(Fade(),MoveOut(-1000, -1000))}>
-              <img src="./logo/top-left-only.png" style={{            height: "46vh",
+              <img src="./tinified/logo/top-left-only.png" style={{            height: "46vh",
           width: "98.29vw",position: "relative",}}/>
             </Animator>
             <Animator animation={batch(Fade(), MoveOut(1000, -1000))}>
-              <img src="./logo/top-right-only.png" style={{             height: "46vh",
+              <img src="./tinified/logo/top-right-only.png" style={{             height: "46vh",
           width: "98.29vw", position: "relative",   top: "-46vh", }}/>
             </Animator>
             <Animator animation={batch(Fade(), MoveOut(-1000, 0))}>
-              <img src="./logo/middle-left-only.png" style={{             height: "46vh",
+              <img src="./tinified/logo/middle-left-only.png" style={{             height: "46vh",
           width: "98.29vw",position: "relative",top: "-92vh", }}/>
             </Animator>
             <Animator animation={batch(Fade(), MoveOut(1000, -500))}>
-              <img src="./logo/middle-right-only.png" style={{             height: "46vh",
+              <img src="./tinified/logo/middle-right-only.png" style={{             height: "46vh",
           width: "98.29vw", position: "relative",top: "-138vh", }}/>
             </Animator>
             <Animator animation={batch(Fade(), MoveOut(-1000, -1000))}>
-              <img src="./logo/bottom-left-only.png" style={{             height: "46vh",
+              <img src="./tinified/logo/bottom-left-only.png" style={{             height: "46vh",
           width: "98.29vw", position: "relative",top: "-184vh", }}/>
             </Animator>
             <Animator animation={batch(Fade(), MoveOut(1000, -1000))}>
-              <img src="./logo/bottom-right-only.png" style={{           height: "46vh",
+              <img src="./tinified/logo/bottom-right-only.png" style={{           height: "46vh",
           width: "98.29vw", position: "relative",top: "-230vh", }}/>
             </Animator>
         </div>
